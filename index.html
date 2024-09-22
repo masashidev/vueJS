@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <a href="composition.html">Composition</a>
+    <h1>{{ message }}</h1>
+    <h1>{{maxSizeBar}}</h1>
+    <h1>{{ paramBar }}
+      <!-- inline element for showing numbers -->
+      <span :style="{color: barColor}">{{ param }}</span>
+
+    </h1>
+
+    <!-- <input type="button" value="next" @click="param++"> -->
+    <input
+      type="range" min="0" max="100" v-model="param"
+      >
+    <button @click="startCount">Start</button>
+    <button @click="stopCount">Stop</button>
+    <button @click="clearCount">Clear</button>
+    <button @click="reverseCount">Reverse</button>
+    <input type="checkbox" v-model="loop"> Loop
+    <!-- <span v-if="loop">Looping</span>
+    <span v-else>Not Looping</span> -->
+
+    <!-- clock Circle timer UI -->
+    <div class="clock">
+      <div class="clock__circle">
+        <div class="clock__hand"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- compositional vue -->
+  <script>
+    const { ref, reactive, computed } = Vue;
+
+    Vue.createApp({
+      setup() {
+        const message = ref('Hello Vue 3');
+        const maxSize = 30;
+        const maxValue = 100;
+        const param = ref(0);
+        const signChar = "-";
+        const maxSizeBar = ref(signChar.repeat(maxSize));
+        const paramBarSize = computed(() => Math.floor((param.value / maxValue) * maxSize));
+        console.log(paramBarSize.value);
+        const paramBar = computed(() => signChar.repeat(paramBarSize.value));
+        // const paramPercentage = computed(() => `${(param.value / maxValue) * 100}%`);
+        // make paramPercentage always integer
+        const paramPercentage = computed(() => `${Math.floor((param.value / maxValue) * 100)}%`);
+        const barColor = computed(() => paramBarSize.value > (maxSize / 2) ? 'red' : 'black');
+
+        const countId = ref(null);
+        const countState = ref("stop");
+        const loop = ref(false);
+
+        const runCounter = (step) => {
+          if (countState.value === "running") return;
+
+          clearInterval(countId.value);
+          countState.value = "running";
+          countId.value = setInterval(() => {
+            param.value += step;
+            if (param.value >= maxValue || param.value <= 0) {
+              if (loop.value) {
+                param.value = param.value >= maxValue ? 0 : maxValue;
+              } else {
+                stopCount();
+              }
+            }
+          }, 100);
+        }
+
+        // Start count (increment)
+        const startCount = () => runCounter(1);
+
+        // Reverse count (decrement)
+        const reverseCount = () => runCounter(-1);
+
+        const stopCount = () => {
+          clearInterval(countId.value);
+          countState.value = "stop";
+        }
+
+        const clearCount = () => {
+          countState.value = "stop";
+          clearInterval(countId.value);
+          param.value = 0;
+        }
+
+
+
+        return {
+          maxSize,
+          message,
+          maxSizeBar,
+          barColor,
+          paramBar,
+          paramBarSize,
+          paramPercentage,
+          param,
+          loop,
+          startCount,
+          stopCount,
+          clearCount,
+          reverseCount
+        };
+
+      }
+    }).mount('#app');
+
+
+  </script>
+
+  </script>
+</body>
+</html>

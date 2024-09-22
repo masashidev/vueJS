@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Document</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="display" id="app"
+  :style="{backgroundColor: bgColor}"
+  @click="updateColor('#' + Math.floor(Math.random() * 16777215).toString(16))"
+  
+    >
+
+    <h1
+    >Background Color</h1>
+
+  </div>
+
+  <script>
+    const { ref, reactive, computed } = Vue;
+
+    Vue.createApp({
+      setup() {
+        const bgColor = ref('#e2e68a');
+
+        const updateColor = (color) => {
+          bgColor.value = color;
+          console.log(bgColor.value);
+        }
+        return {
+          bgColor,
+          updateColor
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

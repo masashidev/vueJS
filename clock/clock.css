@@ -1,0 +1,77 @@
+/* Basic CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #444444;
+  color: #d5d5d5;
+}
+
+:root {
+  --clock-width: 500px;
+  --clock-height: 500px;
+  --clock-size-ratio: 0.8;
+  --clock-face-size: calc(var(--clock-size-ratio) * min(var(--clock-width), var(--clock-height)));
+  --clock-background-color: #959595;
+  --clock-face-background-color: #aa6b6b;
+}
+
+#app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #959595;
+  border-radius: 30px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  width: var(--clock-width);
+  height: var(--clock-height);
+}
+
+.clock-face {
+  position: relative;
+  width: var(--clock-face-size);
+  height: var(--clock-face-size);
+  border-radius: 0%;
+  background-color: #aa6b6b;
+  border: 10px solid #dbbfbf;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+}
+
+.clock-hand-hour, .clock-hand-minute, .clock-hand-second {
+  position: absolute;
+  transform-origin: 50% 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%) rotate(30deg);
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.clock-hand-hour {
+  width: 10px;
+  height: 20%;
+  background-color: #fefefe;
+}
+
+.clock-hand-minute {
+  width: 5px;
+  height: 40%;
+  background-color: #2d2d2d;
+}
+
+.clock-hand-second {
+  width: 2px;
+  height: 50%;
+  background-color: #2d2d2d;
+}
