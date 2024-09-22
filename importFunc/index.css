@@ -43,6 +43,6 @@ body {
   height: 80%;
   border-radius: 0%;
   background-color: var(--second-color);
-  border: 5px solid #dbbfbf;
+  border: 3px solid #c8c8c8;
   box-shadow: 0 10px 10px var(--shadow-color);
 }
