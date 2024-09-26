@@ -46,3 +46,14 @@ body {
   border: 3px solid #c8c8c8;
   box-shadow: 0 10px 10px var(--shadow-color);
 }
+
+/*  for smaller window */
+@media (max-width: 500px) {
+  body {
+    background-color: black;
+  }
+  #main {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,250 @@
+
+:root {
+  --background-color: #fcfcfc;
+  --blurred-background-color: rgba(252, 252, 252, 0.8);
+  --text-color: #2d2d2d;
+  --sub-text-color: #FCFCFC;
+  /* main branding UI */
+  --primary-color: #3e78e3;
+  /* accent UI */
+  --secondary-color: #23863f;
+  /* highlight, action element */
+  --accent-color: #bb4c4c;
+  --hover-accent-color: #f2f2f2;
+  --disabled-color: #c8c8c8;
+
+  --error-color: #ff0000;
+  --warning-color: #ffcc00;
+  --success-color: #00ff00;
+  --info-color: #00ccff;
+
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --south-shadow-config: 0px 5px 10px var(--shadow-color);
+
+  /* dark mode */
+  --dark-background-color: #444444;
+  --dark-text-color: #d5d5d5;
+  --dark-prime-color: #959595;
+  --dark-secondary-color: #aa6b6b;
+
+  --dark-accent-color: #f2f2f2;
+  --dark-hover-accent-color: #f2f2f2;
+  --dark-disabled-color: #c8c8c8;
+
+  --dark-error-color: #ff0000;
+  --dark-warning-color: #ffcc00;
+  --dark-success-color: #00ff00;
+  --dark-info-color: #00ccff;
+
+  --dark-shadow-color: rgba(0, 0, 0, 0.1);
+  --dark-south-shadow-config: 0px 5px 10px var(--dark-shadow-color);
+
+  --content-distance: 20px;
+
+  /* for responsive */
+  --responsive-font-size: 20px;
+}
+
+/* for all window size setting: colors, */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+}
+body {
+  font-family: Arial, sans-serif;
+
+}
+#app {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+#header {
+  background-color: var(--background-color);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#menu {
+  background-color: white;
+}
+#content-display {
+  background-color: var(--background-color);
+}
+
+#footer {
+  background-color: var(--background-color);
+  color: var(--sub-text-color);
+}
+#footer-menu {
+  color: var(--text-color);
+}
+.nav-button{
+  background-color: var(--primary-color);
+  color: var(--sub-text-color);
+  border: none;
+  padding: 10px 20px;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+}
+.nav-button i{
+  margin-right: 5px;
+}
+.active, .active a {
+  color: var(--accent-color)
+}
+
+
+
+
+
+/* for darkmode  */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark-background-color);
+    --text-color: var(--dark-text-color);
+    --prime-color: var(--dark-prime-color);
+    --second-color: var(--dark-second-color);
+
+    --accent-color: var(--dark-accent-color);
+    --hover-accent-color: var(--dark-hover-accent-color);
+    --disabled-color: var(--dark-disabled-color);
+
+    --error-color: var(--dark-error-color);
+    --warning-color: var(--dark-warning-color);
+    --success-color: var(--dark-success-color);
+    --info-color: var(--dark-info-color);
+
+    --shadow-color: var(--dark-shadow-color);
+    --south-shadow-config: var(--dark-south-shadow-config);
+
+  }
+} */
+
+
+/* smaller window */
+@media (max-width: 500px) {
+  body {
+    font-size: 16px;
+  }
+  #app {
+    height: 100vh;
+  }
+
+  #header{
+    /* move as it scroll by javascript */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #menu {
+    display: none;
+  }
+  #content-display {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    width: 100%;
+  }
+  #content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-distance);
+  }
+  .content-item {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--south-shadow-config);
+  }
+  #footer:before{
+    content: "";
+    background-color: var(--background-color);
+    position:absolute;
+    top:-20px;
+    left:  0;
+    right: 0;
+    height: 50px;
+    filter:blur(40px);
+  }
+  #footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
+    background-color: var(--blurred-background-color);
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); For Safari */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+  }
+  #footer-shape{
+    width: 100%;
+    height: 70px;
+    border-radius: 30px;
+    background-color: var(--background-color);
+    box-shadow: var(--south-shadow-config);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #footer-menu {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    /*  space  */
+    justify-content: space-around;
+    align-items: center;
+  }
+  #footer-menu .menu-element {
+    position: relative;
+    display: flex;
+    /* make children elements vertical */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #footer-menu .menu-element a{
+    margin: 5px 0;
+  }
+
+  .nav-button{
+    font-size: var(--responsive-font-size)
+  }
+  .menu-element::after{
+    position:absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    content: "";
+    width: 50%;
+    height: 2px;
+    background-color: transparent;
+  }
+  .menu-element.active::after{
+    background-color: var(--accent-color);
+  }
+}
