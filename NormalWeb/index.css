@@ -24,13 +24,16 @@
   --south-shadow-config: 0px 5px 10px var(--shadow-color);
 
   /* dark mode */
-  --dark-background-color: #444444;
-  --dark-text-color: #d5d5d5;
-  --dark-prime-color: #959595;
-  --dark-secondary-color: #aa6b6b;
-
-  --dark-accent-color: #f2f2f2;
-  --dark-hover-accent-color: #f2f2f2;
+  --dark-background-color: #2d2d2d;
+  --dark-gray-background-color: #8f8f8f;
+  --dark-blurred-background-color: rgba(45, 45, 45, 0.8);
+  --dark-text-color: #fcfcfc;
+  --dark-weak-text-color: rgba(104, 104, 104, 0.5);
+  --dark-sub-text-color: #dcdcdc;
+  --dark-primary-color: #3e78e3;
+  --dark-secondary-color: #23863f;
+  --dark-accent-color: #bb4c4c;
+  --dark-hover-accent-color: #696969;
   --dark-disabled-color: #c8c8c8;
 
   --dark-error-color: #ff0000;
@@ -38,8 +41,8 @@
   --dark-success-color: #00ff00;
   --dark-info-color: #00ccff;
 
-  --dark-shadow-color: rgba(0, 0, 0, 0.1);
-  --dark-south-shadow-config: 0px 5px 10px var(--dark-shadow-color);
+  --dark-shadow-color: rgba(255, 255, 255, 0.2);
+  --dark-south-shadow-config: 0px 5px 10px var(--shadow-color);
 
   --content-distance: 20px;
 
@@ -76,7 +79,13 @@ body {
   background-color: var(--background-color);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
-
+#search-bar input{
+  background-color: var(--gray-background-color);
+  color: var(--text-color);
+}
+#search-bar input::placeholder{
+  color: var(--text-color);
+}
 #menu {
   background-color: white;
 }
@@ -99,6 +108,10 @@ body {
   border: 1px solid var(--text-color);
   border-radius: 10px;
 }
+.nav-button:hover{
+  background-color: var(--hover-accent-color);
+  color: var(--text-color);
+}
 .nav-button i{
   margin-right: 5px;
 }
@@ -113,22 +126,25 @@ body {
 /* for darkmode  */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: var(--dark-background-color);
-    --text-color: var(--dark-text-color);
-    --prime-color: var(--dark-prime-color);
-    --second-color: var(--dark-second-color);
+  --background-color: var(--dark-background-color);
+  --gray-background-color: var(--dark-gray-background-color);
+  --blurred-background-color: var(--dark-blurred-background-color);
+  --text-color: var(--dark-text-color);
+  --weak-text-color: var(--dark-weak-text-color);
+  --sub-text-color: var(--dark-sub-text-color);
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --accent-color: var(--dark-accent-color);
+  --hover-accent-color: var(--dark-hover-accent-color);
+  --disabled-color: var(--dark-disabled-color);
 
-    --accent-color: var(--dark-accent-color);
-    --hover-accent-color: var(--dark-hover-accent-color);
-    --disabled-color: var(--dark-disabled-color);
+  --error-color: var(--dark-error-color);
+  --warning-color: var(--dark-warning-color);
+  --success-color: var(--dark-success-color);
+  --info-color: var(--dark-info-color);
 
-    --error-color: var(--dark-error-color);
-    --warning-color: var(--dark-warning-color);
-    --success-color: var(--dark-success-color);
-    --info-color: var(--dark-info-color);
-
-    --shadow-color: var(--dark-shadow-color);
-    --south-shadow-config: var(--dark-south-shadow-config);
+  --shadow-color: var(--dark-shadow-color);
+  --south-shadow-config: var(--dark-south-shadow-config);
 
   }
 }
@@ -167,7 +183,6 @@ body {
     height: 40px;
     padding: 0 10px;
     border-radius: 10px;
-    background-color: var(--gray-background-color);
     border: none;
   }
   #search-bar button{
