@@ -1,11 +1,10 @@
-
 :root {
   --background-color: #fcfcfc;
   --gray-background-color: #e3e3e3;
   --blurred-background-color: rgba(252, 252, 252, 0.8);
   --text-color: #2d2d2d;
   --weak-text-color: rgb(189, 189, 189, 0.5);
-  --sub-text-color: #FCFCFC;
+  --sub-text-color: #fcfcfc;
   /* main branding UI */
   --primary-color: #3e78e3;
   /* accent UI */
@@ -53,30 +52,27 @@
 /* for darkmode  */
 @media (prefers-color-scheme: dark) {
   :root {
-  --background-color: var(--dark-background-color);
-  --gray-background-color: var(--dark-gray-background-color);
-  --blurred-background-color: var(--dark-blurred-background-color);
-  --text-color: var(--dark-text-color);
-  --weak-text-color: var(--dark-weak-text-color);
-  --sub-text-color: var(--dark-sub-text-color);
-  --primary-color: var(--dark-primary-color);
-  --secondary-color: var(--dark-secondary-color);
-  --accent-color: var(--dark-accent-color);
-  --hover-accent-color: var(--dark-hover-accent-color);
-  --disabled-color: var(--dark-disabled-color);
+    --background-color: var(--dark-background-color);
+    --gray-background-color: var(--dark-gray-background-color);
+    --blurred-background-color: var(--dark-blurred-background-color);
+    --text-color: var(--dark-text-color);
+    --weak-text-color: var(--dark-weak-text-color);
+    --sub-text-color: var(--dark-sub-text-color);
+    --primary-color: var(--dark-primary-color);
+    --secondary-color: var(--dark-secondary-color);
+    --accent-color: var(--dark-accent-color);
+    --hover-accent-color: var(--dark-hover-accent-color);
+    --disabled-color: var(--dark-disabled-color);
 
-  --error-color: var(--dark-error-color);
-  --warning-color: var(--dark-warning-color);
-  --success-color: var(--dark-success-color);
-  --info-color: var(--dark-info-color);
+    --error-color: var(--dark-error-color);
+    --warning-color: var(--dark-warning-color);
+    --success-color: var(--dark-success-color);
+    --info-color: var(--dark-info-color);
 
-  --shadow-color: var(--dark-shadow-color);
-  --south-shadow-config: var(--dark-south-shadow-config);
-
+    --shadow-color: var(--dark-shadow-color);
+    --south-shadow-config: var(--dark-south-shadow-config);
   }
 }
-
-
 
 /* for all window size setting: colors, */
 * {
@@ -97,7 +93,6 @@ button {
 }
 body {
   font-family: Arial, sans-serif;
-
 }
 #app {
   background-color: var(--background-color);
@@ -105,13 +100,13 @@ body {
 }
 #header {
   background-color: var(--background-color);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1); */
 }
-#search-bar input{
+#search-bar input {
   background-color: var(--gray-background-color);
   color: var(--text-color);
 }
-#search-bar input::placeholder{
+#search-bar input::placeholder {
   color: var(--text-color);
 }
 #menu {
@@ -128,7 +123,7 @@ body {
 #footer-menu {
   color: var(--text-color);
 }
-.nav-button{
+.nav-button {
   background-color: var(--primary-color);
   color: var(--sub-text-color);
   border: none;
@@ -136,20 +131,17 @@ body {
   border: 1px solid var(--text-color);
   border-radius: 10px;
 }
-.nav-button:hover{
+.nav-button:hover {
   background-color: var(--hover-accent-color);
   color: var(--text-color);
 }
-.nav-button i{
+.nav-button i {
   margin-right: 5px;
 }
-.active, .active a {
-  color: var(--accent-color)
+.active,
+.active a {
+  color: var(--accent-color);
 }
-
-
-
-
 
 @media (min-width: 500px) {
   body {
@@ -158,11 +150,11 @@ body {
   #app {
     /* height: 100vh; */
 
-    position:relative;
+    position: relative;
 
     display: flex;
   }
-  #left-part{
+  #left-part {
     min-width: 130px;
     height: 100vh;
     display: flex;
@@ -174,12 +166,11 @@ body {
     position: sticky;
     display: none;
 
-
     /* border: 1px solid var(--text-color); */
   }
   /* no space between id and class for the same element  */
   /* with space, css is applied to descendant elements */
-  #menu.menu-show{
+  #menu.menu-show {
     position: fixed;
     top: 0;
     left: 0;
@@ -200,36 +191,50 @@ body {
     width: 100%;
     height: 100%;
 
+    /* border: 1px solid var(--text-color); */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:start;
+    align-items: start;
+
+
   }
   #menu.menu-show ul li {
     width: 100%;
     height: 50px;
+
+    /* border: 1px solid var(--text-color); */
+
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  #menu.menu-show ul li:hover  {
+    background-color: var(--hover-accent-color);
+    cursor: pointer;
+  }
 
-  #right-part{
+
+  #right-part {
     width: 100%;
     position: relative;
   }
-  #header{
-    position:fixed;
+  #header {
+    position: fixed;
     top: 0;
+    left: 0;
+    z-index: 100;
 
     width: 100%;
     height: 50px;
-    box-shadow: var(--south-shadow-config);
+    /* box-shadow: var(--south-shadow-config); */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
   #search-bar {
-    display:block;
+    display: block;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,7 +246,7 @@ body {
     border-radius: 10px;
     border: none;
   }
-  #search-bar button{
+  #search-bar button {
     height: 40px;
     background-color: var(--accent-color);
     color: var(--sub-text-color);
@@ -258,9 +263,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
-  #content{
+  #content {
     max-width: 800px;
     padding: 20px;
     display: flex;
@@ -281,39 +285,28 @@ body {
   .content-text {
     font-size: 16px;
   }
-  #footer:before{
-
+  #footer:before {
   }
   #footer {
-    display:none;
+    display: none;
   }
-  #footer-shape{
-
+  #footer-shape {
   }
   #footer-menu {
-
   }
   #footer-menu .menu-element {
-
   }
 
-  #footer-menu .menu-element a{
-
+  #footer-menu .menu-element a {
   }
 
-  .nav-button{
-
+  .nav-button {
   }
-  .menu-element::after{
-
+  .menu-element::after {
   }
-  .menu-element.active::after{
-
+  .menu-element.active::after {
   }
-
-
 }
-
 
 /* smaller window */
 @media (max-width: 500px) {
@@ -324,7 +317,7 @@ body {
     height: 100vh;
   }
 
-  #header{
+  #header {
     /* move as it scroll by javascript */
     position: fixed;
     top: 0;
@@ -338,7 +331,7 @@ body {
     align-items: center;
   }
   #search-bar {
-    display:none;
+    display: none;
   }
   #menu {
     display: none;
@@ -348,7 +341,7 @@ body {
     padding-bottom: 120px;
     width: 100%;
   }
-  #content{
+  #content {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -383,7 +376,7 @@ body {
     align-items: center;
     padding: 20px 20px;
   }
-  #footer-shape{
+  #footer-shape {
     width: 100%;
     height: 70px;
     border-radius: 30px;
@@ -412,15 +405,15 @@ body {
     align-items: center;
   }
 
-  #footer-menu .menu-element a{
+  #footer-menu .menu-element a {
     margin: 5px 0;
   }
 
-  .nav-button{
-    font-size: var(--responsive-font-size)
+  .nav-button {
+    font-size: var(--responsive-font-size);
   }
-  .menu-element::after{
-    position:absolute;
+  .menu-element::after {
+    position: absolute;
     bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
@@ -430,7 +423,7 @@ body {
     height: 2px;
     background-color: transparent;
   }
-  .menu-element.active::after{
+  .menu-element.active::after {
     background-color: var(--accent-color);
   }
 }
