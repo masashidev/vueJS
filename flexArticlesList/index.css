@@ -1,0 +1,99 @@
+
+:root {
+  --background-color: #3d3d3d;
+  --text-color: #cacaca;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: var(--text-color);
+}
+
+
+#app {
+  border: 1px solid #ffffff;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+#articles-list{
+  border: 1px solid #cacaca;
+  width: 100%;
+  max-width: 1000px;
+  list-style: none ;
+  padding: 2px;
+}
+
+.article{
+  border: 1px solid #cacaca;
+  border-bottom: 0.5px solid rgba(202, 202, 202, 0.5);
+  padding: 10px;
+  margin: 2px;
+}
+
+.article-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* border: 1px solid #ffffff; */
+}
+.article-title :hover{
+  color: #b48585;
+}
+.article-title a{
+  border: 1px solid #ffffff;
+  display: block;
+}
+.bottom-line{
+  width: 100px;
+  height: 1px;
+  background-color: rgba(202, 202, 202, 0.5);
+  margin-bottom: 10px;
+}
+.article-keywords{
+  font-size: 1rem;
+  font-style: italic;
+  display: flex;
+  margin-bottom: 5px;
+  color: rgba(202, 202, 202, 0.9);
+}
+.keywords{
+  margin-right: 10px;
+}
+.article-summary{
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: rgba(202, 202, 202, 0.8);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 任意の行数を指定 */
+}
+.published-date{
+  font-size: 0.8rem;
+  color: rgba(202, 202, 202, 0.7);
+  text-align: right;
+}
+
+#article-content{
+  border: 1px solid #cacaca;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
