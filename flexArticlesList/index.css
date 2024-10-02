@@ -22,6 +22,11 @@ body {
 a {
   color: var(--text-color);
 }
+.large-text{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
 
 #app {
