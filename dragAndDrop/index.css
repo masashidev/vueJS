@@ -1,0 +1,66 @@
+:root{
+  --background-color: #1f1f1f;
+  --text-color: #f3f3f3;
+  --dragging-color: #cfaeae;
+  --dragging-target-color: #bfbfbf;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  text-decoration: none;
+  list-style: none;
+}
+
+body{
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+}
+
+#app{
+  border: 1px solid var(--text-color);
+  height: 100vh;
+  width: 1000px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.item{
+  border: 1px solid #fafafa;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.item:hover{
+  background-color: #858585;
+}
+.dragging{
+  background-color: var(--dragging-color);
+}
+.dragging-target{
+  background-color: var(--dragging-target-color);
+
+  position: relative;
+}
+.dragging-target::after{
+  width: 100%;
+  height: 5px;
+  background-color: #d65151;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+
+}
