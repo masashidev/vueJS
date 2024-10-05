@@ -1,7 +1,7 @@
 let items = document.querySelectorAll(".item");
 let itemsList = document.querySelector("#items-list");
 let draggedItem = null;
-
+console.log(itemsList);
 // const itemsArray = Array.from(items);
 
 const newItem = document.createElement("div");
